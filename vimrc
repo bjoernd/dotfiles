@@ -132,13 +132,22 @@ set tags+=/home/doebel/.vim/tags/llvm-2.6.tags
 set tags+=/home/doebel/.vim/tags/nova.tags
 set tags+=/home/doebel/.vim/tags/udis86.tags
 
+set ofu=syntaxcomplete#Complete
+
 " start autocompletion for ::
-let OmniCpp_MayCompleteScope=1
+let OmniCpp_NamespaceSearch = 1
+let OmniCpp_GlobalScopeSearch = 1
+let OmniCpp_ShowAccess = 1
+let OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
+let OmniCpp_MayCompleteDot = 1 " autocomplete after .
+let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
+let OmniCpp_MayCompleteScope=1 " autocomplete after ::
 
 " close popupmenu when moving cursor
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
+set completeopt=menuone,menu,longest,preview
 
 " Run through buffer and remove trailing spaces
 function! StripLines()
