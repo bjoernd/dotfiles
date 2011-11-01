@@ -46,12 +46,11 @@ set stl=%F-%m-%r-%y-%l/%L\ \(%p\%%\)\ \ %c
 
 " gui font
 if has("gui_running")
-	set guifont=Inconsolata\ 9
+	set guifont=Inconsolata\ 10
 	set co=110
 	set lines=80
-	set background=light
-"	let psc_style='warm'
-	color habiLight
+	set background=dark
+	colorscheme spiderhawk
 endif
 
 " make the right mouse button to bring up popups
@@ -75,6 +74,7 @@ autocmd BufRead,BufNew *.html      set textwidth=0 wm=0
 autocmd BufRead,BufNew *.php       set textwidth=0 wm=0
 autocmd BufRead,BufNew *.xml       set textwidth=0 wm=0
 autocmd BufRead,BufNew *.go        set filetype=go
+autocmd BufRead,BufNew *.simics    set filetype=simics
 autocmd FileType mail              set textwidth=75 wm=1
 autocmd FileType haskell           set expandtab nocindent
 autocmd FileType c,cpp             set noexpandtab cindent
@@ -128,26 +128,18 @@ map <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 " ... generic C++ stl stuff generated from /usr/include/c++/4.4
 "     (by replacing _GLIBCXX_NAMESPACE(.*) by 'namespace \1 {' etc)
 set tags+=/home/doebel/.vim/tags/l4re.tags
-set tags+=/home/doebel/.vim/tags/llvm-2.6.tags
-set tags+=/home/doebel/.vim/tags/nova.tags
-set tags+=/home/doebel/.vim/tags/udis86.tags
-
-set ofu=syntaxcomplete#Complete
+"set tags+=/home/doebel/.vim/tags/llvm-2.6.tags
+"set tags+=/home/doebel/.vim/tags/nova.tags
+"set tags+=/home/doebel/.vim/tags/udis86.tags
+"set tags+=/home/doebel/.vim/tags/cppunit.tags
 
 " start autocompletion for ::
-let OmniCpp_NamespaceSearch = 1
-let OmniCpp_GlobalScopeSearch = 1
-let OmniCpp_ShowAccess = 1
-let OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
-let OmniCpp_MayCompleteDot = 1 " autocomplete after .
-let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
-let OmniCpp_MayCompleteScope=1 " autocomplete after ::
+let OmniCpp_MayCompleteScope=1
 
 " close popupmenu when moving cursor
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
-set completeopt=menuone,menu,longest,preview
 
 " Run through buffer and remove trailing spaces
 function! StripLines()
@@ -159,3 +151,19 @@ endpython
 endfunction
 
 let g:lisp_rainbow=1
+
+" CommandT stuff
+let g:CommandTMaxFiles = 100000
+" default ignore rule
+set wildignore+=*.o,*.a,.git,.svn
+" ... and one that makes CommandT ignore unimportant l4re pkg directories
+set wildignore+=boost*,linux-*-headers,Mesa
+
+set foldmethod=indent
+set foldnestmax=20
+set nofoldenable
+set foldlevel=2
+set foldcolumn=2
+
+au BufWinLeave ?* mkview
+au BufWinEnter ?* loadview 

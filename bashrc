@@ -24,10 +24,9 @@ fi
 
 export CVS_RSH="ssh"
 export CVSEDIT="vim"
-export UXRES="800x600@16"
-export L4BIN="/home/doebel/src/tudos/trunk/build_l4re_x86/bin/x86_686/l4f"
+export L4BIN="/home/doebel/src/tudos/trunk/src/build/"
 export MYL4DIR="/home/doebel/src/tudos/trunk/l4"
-export L4REDIR="/home/doebel/src/tudos/trunk/l4re/l4"
+export L4REDIR="/home/doebel/src/tudos/trunk/src/l4"
 export FIASCOUX="/home/doebel/src/l4-svn/kernel/fiasco/build_ux/fiasco"
 export QEMU_SVN="/home/doebel/src/qemu"
 export MINICOM="-c on"
@@ -41,7 +40,12 @@ export LESS=" -R "
 
 export LINUX='/home/doebel/src/linux/linux-2.6.29'
 
-export PATH="/home/doebel/local/bin:$PATH:/opt/openoffice.org3/program:/usr/local/gcc/4.2-arm-softfloat/bin/"
+PATH="/home/doebel/local/bin:$PATH"
+PATH="$PATH:/usr/local/gcc/4.2-arm-softfloat/bin/"
+PATH="$PATH:/home/doebel/src/bcc/sparc-elf-4.4.2/bin/:/opt/mkprom2"
+PATH="$PATH:/opt/simics/simics-4.2.68/bin"
+PATH="$PATH:/home/doebel/src/bcc/tsim-eval/tsim/linux"
+export PATH
 
 
 # set a fancy prompt (non-color, unless we know we "want" color)
@@ -148,15 +152,14 @@ seq ()
     echo "$lower"
 }
 
-L4ENV_BUILDDIR="/home/doebel/src/tudos/trunk/build_x86"
-L4REX86_BUILDDIR="/home/doebel/src/tudos/trunk/build_l4re_x86"
-L4REAMD64_BUILDDIR="/home/doebel/src/tudos/trunk/build_l4re_amd64"
-L4REARM_BUILDDIR="/home/doebel/src/tudos/trunk/build_l4re_arm"
-FIASCO_BUILDDIR="/home/doebel/src/tudos/trunk/kernel/fiasco/build"
-FIASCO_UX_BUILDDIR="/home/doebel/src/tudos/trunk/kernel/fiasco/build_ux"
+L4REX86_BUILDDIR="/home/doebel/src/tudos/trunk/src/build"
+L4REAMD64_BUILDDIR="/home/doebel/src/tudos/trunk/src/build_amd64"
+L4REARM_BUILDDIR="/home/doebel/src/tudos/trunk/src/build_arm"
+L4RESPARC_BUILDDIR="/home/doebel/src/tudos/trunk/src/build_sparc"
 FIASCO_DEV_X86_BUILDDIR="/home/doebel/src/tudos/trunk/kernel/fiascodev/build"
 FIASCO_DEV_AMD64_BUILDDIR="/home/doebel/src/tudos/trunk/kernel/fiascodev/build_amd64"
 FIASCO_DEV_ARM_BUILDDIR="/home/doebel/src/tudos/trunk/kernel/fiascodev/build_arm"
+FIASCO_DEV_SPARC_BUILDDIR="/home/doebel/src/tudos/trunk/kernel/fsparc/build"
 OK_ICON=/usr/share/icons/oxygen/48x48/actions/dialog-ok.png
 FAIL_ICON=/usr/share/icons/oxygen/48x48/status/dialog-error.png
 
@@ -168,7 +171,7 @@ make_fn()
 	dir=`pwd`;
 	echo $dir;
 
-	if [[ $dir =~ "l4re" ]]; then
+	if [[ $dir =~ "tudos/trunk/src/l4/pkg" ]]; then
 		if [ $arch == "x86" ]; then
 			echo "L4RE/x86";
 			BUILDDIR=$L4REX86_BUILDDIR;
@@ -178,12 +181,17 @@ make_fn()
 		elif [ $arch == "amd64" ]; then
 			echo "L4RE/AMD64";
 			BUILDDIR=$L4REAMD64_BUILDDIR;
+		elif [ $arch == "sparc" ]; then
+			echo "L4Re/Sparc";
+			BUILDDIR=$L4RESPARC_BUILDDIR;
 		fi
-		nice make PL=2 O=$BUILDDIR --no-print-directory $@
-	elif [[ $dir =~ "l4$" ]]; then
-		echo "L4Env/x86";
-		BUILDDIR=$L4ENV_BUILDDIR;
-		nice make PL=2 O=$BUILDDIR --no-print-directory $@
+		nice make O=$BUILDDIR --no-print-directory $@
+
+	elif [[ $dir =~ "kpr/trunk" ]]; then
+		echo "KPR"
+		BUILDDIR=/home/doebel/src/tudos/kpr/trunk/obj/l4/x86
+		nice make O=$BUILDDIR --no-print-directory $@
+
 	elif [[ $dir =~ "kernel/fiascodev" ]]; then
 		echo "Fiasco.DEV build";
 		if [ $arch == "x86" ]; then
@@ -195,29 +203,23 @@ make_fn()
 		elif [ $arch == "arm" ]; then
 			echo "Fiasco.DEV/ARM";
 			BUILDDIR=$FIASCO_DEV_ARM_BUILDDIR;
+		elif [ $arch == "sparc" ]; then
+			echo "Fiasco.DEV/Sparc";
+			BUILDDIR=$FIASCO_DEV_SPARC_BUILDDIR;
 		fi
 
 		nice make O=$BUILDDIR --no-print-directory $@
-	elif [[ $dir =~ "kernel/fiasco" ]]; then
-		if [ $arch == "ux" ]; then
-			echo "Fiasco/UX x86"
-			BUILDDIR=$FIASCO_UX_BUILDDIR;
-		else
-			echo "Fiasco/x86"
-			BUILDDIR=$FIASCO_BUILDDIR;
-		fi
 
-		make O=$BUILDDIR --no-print-directory $@
 	else
 		echo "normal x86 build";
 		make $@
 	fi
 
-	if [ $? == 0 ]; then
-		notify-send --urgency=normal --icon=$OK_ICON "Compile" "Done"
-	else
-		notify-send --urgency=critical --icon=$FAIL_ICON "Compile" "Error"
-	fi
+#	if [ $? == 0 ]; then
+#		notify-send --urgency=normal --icon=$OK_ICON "Compile" "Done"
+#	else
+#		notify-send --urgency=critical --icon=$FAIL_ICON "Compile" "Error"
+#	fi
 }
 
 
@@ -237,3 +239,27 @@ run_ctags ()
 {
 	ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .
 }
+
+erwin_license_tunnel ()
+{
+	ssh -N \
+		-L licerwin:8224:licerwin:8224 \
+		-L licsilo:8225:licsilo:8225 \
+		-L licblei:8226:licblei:8226 \
+		-L licerwin:42175:licerwin:42175 \
+		erwin.inf.tu-dresden.de
+}
+
+d ()
+{
+	project=$(basename $(pwd))
+	if [[ -z $2 ]]; then
+		ditz $1
+	else
+		ditz $1 $project-$2
+	fi
+}
+
+if [ -z "$(ps uax | grep conky$)" ]; then
+  conky;
+fi
