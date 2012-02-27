@@ -101,6 +101,14 @@ nnoremap <silent> <S-F8> :Man 3 <C-R><C-W><CR>
 nnoremap <M-Right> :bn<CR><ESC>
 nnoremap <M-Left> :bN<CR><ESC>
 
+" Ctrl+Alt+M for plain 'make'
+nnoremap <C-M-M> :make<CR><ESC>
+
+" LaTeX binding: takes the current line (containing a \begin{foo}[args]
+" statement) and creates the corresponding \end{foo} statement underneath
+inoremap <C-M-P> <ESC>yypwdwiend<ESC>%lD
+nnoremap <C-M-P> <ESC>yypwdwiend<ESC>%lD
+
 " Show all buffers and ask for the one to go to (found on the vim ML)
 map __ :buffers<BAR>
            \let i = input("Buffer number: ")<BAR>
