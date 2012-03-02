@@ -88,6 +88,9 @@ autocmd FileType python            set ai nocindent expandtab smartindent cinwor
 autocmd FileType help              set nospell
 autocmd FileType tex               set nospell nocindent expandtab wm=1 tw=78
 
+" close NERDTree if it is the last window
+autocmd bufenter *                 if(winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree == "primary") | q | endif
+
 " key mappings
 " <F1> is VIM's help
 " <F3> is mapped by the spacehi plugin
@@ -114,6 +117,8 @@ nnoremap <C-M-M> :make<CR><ESC>
 " statement) and creates the corresponding \end{foo} statement underneath
 inoremap <C-M-P> <ESC>yypwdwiend<ESC>%lD
 nnoremap <C-M-P> <ESC>yypwdwiend<ESC>%lD
+
+nnoremap <M-f> :NERDTreeToggle<CR>
 
 " Show all buffers and ask for the one to go to (found on the vim ML)
 map __ :buffers<BAR>
@@ -173,5 +178,3 @@ set foldcolumn=2
 
 au BufWinLeave ?* mkview
 au BufWinEnter ?* loadview 
-
-let g:clang_complete_copen=1
