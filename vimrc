@@ -1,5 +1,8 @@
 set nocompatible
 
+" PathoGen to manage plugins in subdirectories
+call pathogen#infect()
+
 " enable syntax highlighting
 syntax enable
 
@@ -46,9 +49,12 @@ set stl=%F-%m-%r-%y-%l/%L\ \(%p\%%\)\ \ %c
 
 " gui font
 if has("gui_running")
-	set guifont=Inconsolata\ 10
+	set guifont=Inconsolata\ 8
 	set co=110
 	set lines=80
+	set background=light
+	colorscheme solarized
+else
 	set background=dark
 	colorscheme spiderhawk
 endif
