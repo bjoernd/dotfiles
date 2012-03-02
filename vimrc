@@ -84,7 +84,6 @@ autocmd BufRead,BufNew *.simics    set filetype=simics
 autocmd FileType mail              set textwidth=75 wm=1
 autocmd FileType haskell           set expandtab nocindent
 autocmd FileType c,cpp             set noexpandtab cindent
-autocmd FileType c,cpp             :Rainbow
 autocmd FileType python            set ai nocindent expandtab smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 autocmd FileType help              set nospell
 autocmd FileType tex               set nospell nocindent expandtab wm=1 tw=78
@@ -92,8 +91,9 @@ autocmd FileType tex               set nospell nocindent expandtab wm=1 tw=78
 " key mappings
 " <F1> is VIM's help
 " <F3> is mapped by the spacehi plugin
+nnoremap <silent> <C-F5> :TlistToggle<CR><ESC>
 " <F6> to toggle highlighting of search results"
-nnoremap <silent> <F6> :noh<CR><ESC>
+nnoremap <silent> <C-F6> :noh<CR><ESC>
 " <F7> toggles spell checks
 nnoremap <silent> <F7> :set spell!<CR><ESC>
 
@@ -147,14 +147,6 @@ set tags+=/home/doebel/.vim/tags/l4re.tags
 "set tags+=/home/doebel/.vim/tags/udis86.tags
 "set tags+=/home/doebel/.vim/tags/cppunit.tags
 
-" start autocompletion for ::
-let OmniCpp_MayCompleteScope=1
-
-" close popupmenu when moving cursor
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-
-
 " Run through buffer and remove trailing spaces
 function! StripLines()
 python << endpython
@@ -181,3 +173,5 @@ set foldcolumn=2
 
 au BufWinLeave ?* mkview
 au BufWinEnter ?* loadview 
+
+let g:clang_complete_copen=1
