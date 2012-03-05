@@ -1,6 +1,7 @@
 set nocompatible
 
-" PathoGen to manage plugins in subdirectories
+" PathoGen to manage plugins in subdirectories -> should be the first thing
+" after 'set nocomp'
 call pathogen#infect()
 
 " enable syntax highlighting
@@ -54,6 +55,8 @@ if has("gui_running")
 	set lines=80
 	set background=light
 	colorscheme solarized
+
+	set guitablabel=%{ShortTabLabel()}
 else
 	set background=dark
 	colorscheme spiderhawk
@@ -180,3 +183,7 @@ set foldcolumn=2
 
 au BufWinLeave ?* mkview
 au BufWinEnter ?* loadview 
+
+" Generally, this file is the global one I keep in github. Local
+" customizations go into a runtime file:
+runtime vim.local
