@@ -120,6 +120,9 @@ nnoremap <C-M-P> <ESC>yypwdwiend<ESC>%lD
 
 nnoremap <M-f> :NERDTreeToggle<CR>
 
+noremap <C-M-S> :ScratchOpen<CR>
+noremap <C-M-E> :ScratchEval<CR>
+
 " Show all buffers and ask for the one to go to (found on the vim ML)
 map __ :buffers<BAR>
            \let i = input("Buffer number: ")<BAR>
@@ -138,7 +141,6 @@ function! MyLastWindow()
   endif
 endfunction
 
-" ----- omnicomplete-c++ -----
 " enable plugin loading
 filetype plugin on
 " Ctrl + F12 -> generate tags for current working directory
