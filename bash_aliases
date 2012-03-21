@@ -1,7 +1,7 @@
 # Aliases
 # ssh
 alias kiwi="ssh -X bd1@kiwi.inf.tu-dresden.de"
-alias loki="ssh bjoern@loki-new.rshc.de"
+alias loki="ssh bjoern@loki.rshc.de"
 alias erwin="ssh -X doebel@erwin.inf.tu-dresden.de"
 alias selen="ssh -X doebel@selen.inf.tu-dresden.de"
 alias silo="ssh -X doebel@silo.inf.tu-dresden.de"
@@ -128,7 +128,7 @@ alias dde="cd $L4REDIR/pkg/dde/linux26/"
 alias cdre="cd $L4REDIR/pkg"
 alias cdp="cd $L4REDIR/pkg/plr/server/src"
 alias cdv="cd $L4REDIR/pkg/valgrind"
-alias fiascodev="cd /home/doebel/src/tudos/trunk/kernel/fiascodev"
+alias fiascodev="cd $FIASCO_DEV_BASE/$FIASCO_SRC"
 alias asteroid="cd /home/doebel/data/work/Projekte/ASTEROID"
 
 alias vless='/usr/share/vim/vim72/macros/less.sh'
