@@ -5,6 +5,8 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+source ~/.bash.local
+
 # don't put duplicate lines in the history. See bash(1) for more options
 export HISTCONTROL=ignoredups
 # ... and ignore same sucessive entries.
@@ -24,11 +26,6 @@ fi
 
 export CVS_RSH="ssh"
 export CVSEDIT="vim"
-export L4BIN="/home/doebel/src/tudos/trunk/src/build/"
-export MYL4DIR="/home/doebel/src/tudos/trunk/l4"
-export L4REDIR="/home/doebel/src/tudos/trunk/src/l4"
-export FIASCOUX="/home/doebel/src/l4-svn/kernel/fiasco/build_ux/fiasco"
-export QEMU_SVN="/home/doebel/src/qemu"
 export MINICOM="-c on"
 
 export GREP_COLOR='1;34'
@@ -38,23 +35,17 @@ export ACK_COLOR_MATCH='bold blue'
 export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
 export LESS=" -R "
 
-export LINUX='/home/doebel/src/linux/linux-2.6.29'
-
 PATH="/home/doebel/local/bin:$PATH"
-PATH="$PATH:/usr/local/gcc/4.2-arm-softfloat/bin/"
-PATH="$PATH:/home/doebel/src/bcc/sparc-elf-4.4.2/bin/:/opt/mkprom2"
-PATH="$PATH:/opt/simics/simics-4.2.68/bin"
-PATH="$PATH:/home/doebel/src/bcc/tsim-eval/tsim/linux"
 export PATH
 
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
 xterm-color)
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[32;1m\]\u@\h\[\033[00m\]:\[\033[01;33m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[33m\]\u@\h\[\033[00m\]:\[\033[01;33m\]\w\[\033[00m\]\$ '
     ;;
 xterm)
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[32;1m\]\u@\h\[\033[00m\]:\[\033[01;33m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[33m\]\u@\h\[\033[00m\]:\[\033[01;33m\]\w\[\033[00m\]\$ '
     ;;
 *)
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
@@ -101,6 +92,16 @@ fi
 alias unsetenv=unset
 function setenv () {
   export $1="$2"
+}
+
+toupper()
+{
+	local char="$*"
+	out=$(echo $char | tr [:lower:] [:upper:])
+	local retval=$?
+	echo "$out"
+	unset out
+	return $retval
 }
 
 # Function which adds an alias to the current shell and to
@@ -152,14 +153,6 @@ seq ()
     echo "$lower"
 }
 
-L4REX86_BUILDDIR="/home/doebel/src/tudos/trunk/src/build"
-L4REAMD64_BUILDDIR="/home/doebel/src/tudos/trunk/src/build_amd64"
-L4REARM_BUILDDIR="/home/doebel/src/tudos/trunk/src/build_arm"
-L4RESPARC_BUILDDIR="/home/doebel/src/tudos/trunk/src/build_sparc"
-FIASCO_DEV_X86_BUILDDIR="/home/doebel/src/tudos/trunk/kernel/fiascodev/build"
-FIASCO_DEV_AMD64_BUILDDIR="/home/doebel/src/tudos/trunk/kernel/fiascodev/build_amd64"
-FIASCO_DEV_ARM_BUILDDIR="/home/doebel/src/tudos/trunk/kernel/fiascodev/build_arm"
-FIASCO_DEV_SPARC_BUILDDIR="/home/doebel/src/tudos/trunk/kernel/fsparc/build"
 OK_ICON=/usr/share/icons/oxygen/48x48/actions/dialog-ok.png
 FAIL_ICON=/usr/share/icons/oxygen/48x48/status/dialog-error.png
 
@@ -171,7 +164,7 @@ make_fn()
 	dir=`pwd`;
 	echo $dir;
 
-	if [[ $dir =~ "tudos/trunk/src/l4/pkg" ]]; then
+	if [[ $dir =~ $L4RE_PKG ]]; then
 		if [ $arch == "x86" ]; then
 			echo "L4RE/x86";
 			BUILDDIR=$L4REX86_BUILDDIR;
@@ -187,12 +180,7 @@ make_fn()
 		fi
 		nice make O=$BUILDDIR --no-print-directory $@
 
-	elif [[ $dir =~ "kpr/trunk" ]]; then
-		echo "KPR"
-		BUILDDIR=/home/doebel/src/tudos/kpr/trunk/obj/l4/x86
-		nice make O=$BUILDDIR --no-print-directory $@
-
-	elif [[ $dir =~ "kernel/fiascodev" ]]; then
+	elif [[ $dir =~ $FIASCO_SRC ]]; then
 		echo "Fiasco.DEV build";
 		if [ $arch == "x86" ]; then
 			echo "Fiasco.DEV/x86";
@@ -222,11 +210,6 @@ make_fn()
 #	fi
 }
 
-
-export GOROOT=/home/doebel/src/go
-export GOOS=linux
-export GOARCH=386
-export GOBIN=/home/doebel/local/bin
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -259,7 +242,3 @@ d ()
 		ditz $1 $project-$2
 	fi
 }
-
-if [ -z "$(ps uax | grep conky$)" ]; then
-  conky;
-fi
