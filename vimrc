@@ -48,20 +48,6 @@ set path+=/usr/local/include
 " my status line
 set stl=%F-%m-%r-%y-%l/%L\ \(%p\%%\)\ \ %c
 
-" gui font
-if has("gui_running")
-	set guifont=Inconsolata\ 8
-	set co=110
-	set lines=80
-	set background=light
-	colorscheme solarized
-
-	set guitablabel=%{ShortTabLabel()}
-else
-	set background=dark
-	colorscheme spiderhawk
-endif
-
 " make the right mouse button to bring up popups
 set mousemodel=popup
 
@@ -180,9 +166,6 @@ set foldnestmax=20
 set nofoldenable
 set foldlevel=2
 set foldcolumn=2
-
-au BufWinLeave ?* mkview
-au BufWinEnter ?* loadview 
 
 " Generally, this file is the global one I keep in github. Local
 " customizations go into a runtime file:
