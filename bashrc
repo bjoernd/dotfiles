@@ -7,6 +7,13 @@
 
 source ~/.bash.local
 
+for var in L4RE_BASE L4RE_PKG FIASCO_DEV_BASE FIASCO_SRC; do
+	if [ -z "$(echo $(env | grep $var))" ]; then
+		echo "$var NOT SET!";
+		return
+	fi
+done
+
 # don't put duplicate lines in the history. See bash(1) for more options
 export HISTCONTROL=ignoredups
 # ... and ignore same sucessive entries.
