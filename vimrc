@@ -99,6 +99,10 @@ nnoremap <silent> <S-F8> :Man 3 <C-R><C-W><CR>
 nnoremap <M-Right> :bn<CR><ESC>
 nnoremap <M-Left> :bN<CR><ESC>
 
+" Ctrl + up/down to navigate through quickfix buffer entries
+nnoremap <C-Up> :cp<CR><ESC>
+nnoremap <C-Down> :cn<CR><ESC>
+
 " Ctrl+Alt+M for plain 'make'
 nnoremap <C-M-M> :make<CR><ESC>
 
