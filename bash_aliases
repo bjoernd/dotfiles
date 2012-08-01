@@ -38,12 +38,12 @@ function newest()
 # objdump all sections, source annotations, disassembly
 function odump()
 {
-	objdump -lSCd $@ | less;
+	objdump -lSCd -Mintel $@ | less;
 }
 
 function sodump()
 {
-	sobjdump -lSCd $@ | less;
+	sparc-elf-objdump -lSCd $@ | less;
 }
 
 # run nm on a set of objects (ending with the 1st parameter) and
