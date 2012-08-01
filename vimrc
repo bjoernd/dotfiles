@@ -171,6 +171,9 @@ set nofoldenable
 set foldlevel=2
 set foldcolumn=2
 
+au BufWinLeave ?* mkview
+au BufWinEnter ?* loadview
+
 " Generally, this file is the global one I keep in github. Local
 " customizations go into a runtime file:
 runtime vim.local
