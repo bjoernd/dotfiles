@@ -166,15 +166,18 @@ erwin_license_tunnel ()
 		erwin.inf.tu-dresden.de
 }
 
-#d ()
-#{
-#	project=$(basename $(pwd))
-#	if [[ -z $2 ]]; then
-#		ditz $1
-#	else
-#		ditz $1 $project-$2
-#	fi
-#}
+
+unalias d
+
+d ()
+{
+	project=$(basename $(pwd))
+	if [[ -z $2 ]]; then
+		ditz $1
+	else
+		ditz $1 $project-$2
+	fi
+}
 
 suspm ()
 {
@@ -187,7 +190,7 @@ alias erwin="ssh -X doebel@erwin.inf.tu-dresden.de"
 alias os="ssh doebel@os.inf.tu-dresden.de"
 
 # commands
-alias cgr="find . | grep -v .svn | grep \\.c$ | xargs grep -iIsHn"
+alias cgr="find . | grep -v .svn | grep -v .git | grep -v \~$ | grep \\.c$ | xargs grep -iIsHn"
 alias cgrep="cgr"
 
 # Linux: grep for definition of config option
@@ -244,11 +247,10 @@ function ogrep ()
 	nmgrep .o $@
 }
 
-
 alias ag="ack-grep"
 alias eu="erwin_update"
-alias gr="find . | grep -v .svn | xargs grep -Iisn"
-alias hgr="find . | grep -v .svn | grep \\.h$ | xargs grep -iIsHn"
+alias gr="find . | grep -v .svn | grep -v .git | grep -v \~$ | xargs grep -Iisn"
+alias hgr="find . | grep -v .svn | grep -v .git | grep -v \~$ | grep \\.h$ | xargs grep -iIsHn"
 alias hgrep="hgr"
 alias ll="ls -lh"
 alias ls="ls --color=auto"
