@@ -83,9 +83,9 @@ autocmd bufenter *                 if(winnr("$") == 1 && exists("b:NERDTreeType"
 " key mappings
 " <F1> is VIM's help
 " <F3> is mapped by the spacehi plugin
-nnoremap <silent> <C-F5> :TlistToggle<CR><ESC>
+nnoremap <silent> <F4> :TlistToggle<CR><ESC>
 " <F6> to toggle highlighting of search results"
-nnoremap <silent> <C-F6> :noh<CR><ESC>
+nnoremap <silent> <F6> :noh<CR><ESC>
 " <F7> toggles spell checks
 nnoremap <silent> <F7> :set spell!<CR><ESC>
 
