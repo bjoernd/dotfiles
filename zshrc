@@ -247,6 +247,16 @@ function ogrep ()
 	nmgrep .o $@
 }
 
+
+function lxsys ()
+{
+	f32="/usr/include/i386-linux-gnu/asm/unistd_32.h"
+	f64="/usr/include/i386-linux-gnu/asm/unistd_64.h"
+	for f in $f32 $f64; do
+		lxsysdef $f $1
+	done
+}
+
 alias ag="ack-grep"
 alias eu="erwin_update"
 alias gr="find . | grep -v .svn | grep -v .git | grep -v \~$ | xargs grep -Iisn"
