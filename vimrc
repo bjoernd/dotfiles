@@ -39,6 +39,12 @@ set incsearch
 " status line always on
 set laststatus=2
 
+" Power Line config
+set encoding=utf-8
+set t_Co=256
+let g:Powerline_stl_path_style="relative"
+
+
 " visual bell, do not beep!
 set visualbell
 
