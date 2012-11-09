@@ -33,4 +33,7 @@ print filename
 for l in grepret:
     if l != "":
         data = l.split()
-        print "%20s \033[32m%5s\033[0m" % (data[1][5:], data[2])
+        if value.isdigit() and data[2] != value:
+            continue
+        else:
+            print "%20s \033[32m%5s\033[0m" % (data[1][5:], data[2])

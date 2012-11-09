@@ -171,7 +171,7 @@ unalias d
 
 d ()
 {
-	project=$(basename $(pwd))
+	project=$(basename $(pwd) | tr '[A-Z]' '[a-z]')
 	if [[ -z $2 ]]; then
 		ditz $1
 	else
