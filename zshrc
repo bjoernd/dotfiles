@@ -35,8 +35,8 @@ source $ZSH/oh-my-zsh.sh
 
 export CVS_RSH="ssh"
 export CVSEDIT="vim"
-export L4BIN="/home/doebel/src/tudos/src/build/"
-export L4REDIR="/home/doebel/src/tudos/src/l4"
+export L4BIN="/home/doebel/src/tudos/l4/build/"
+export L4REDIR="/home/doebel/src/tudos/l4"
 export MINICOM="-c on"
 
 export GREP_COLOR='1;34'
@@ -88,14 +88,14 @@ seq ()
     echo "$lower"
 }
 
-L4REX86_BUILDDIR="/home/doebel/src/tudos/src/build"
-L4REAMD64_BUILDDIR="/home/doebel/src/tudos/src/build_amd64"
-L4REARM_BUILDDIR="/home/doebel/src/tudos/src/build_arm"
-L4RESPARC_BUILDDIR="/home/doebel/src/tudos/src/build-sparc"
-FIASCO_DEV_X86_BUILDDIR="/home/doebel/src/tudos/src/kernel/fiasco/build"
-FIASCO_DEV_SPARC_BUILDDIR="/home/doebel/src/tudos/src/kernel/fiasco/build-sparc"
-FIASCO_DEV_AMD64_BUILDDIR="/home/doebel/src/tudos/src/kernel/fiasco/build_amd64"
-FIASCO_DEV_ARM_BUILDDIR="/home/doebel/src/tudos/src/kernel/fiasco/build_arm"
+L4REX86_BUILDDIR="/home/doebel/src/tudos/l4/build"
+L4REAMD64_BUILDDIR="/home/doebel/src/tudos/l4/build64"
+L4REARM_BUILDDIR="/home/doebel/src/tudos/l4/buildarm"
+L4RESPARC_BUILDDIR="/home/doebel/src/tudos/l4/build-sparc"
+FIASCO_DEV_X86_BUILDDIR="/home/doebel/src/tudos/kernel/fiasco/build"
+FIASCO_DEV_SPARC_BUILDDIR="/home/doebel/src/tudos/kernel/fiasco/build-sparc"
+FIASCO_DEV_AMD64_BUILDDIR="/home/doebel/src/tudos/kernel/fiasco/build_amd64"
+FIASCO_DEV_ARM_BUILDDIR="/home/doebel/src/tudos/kernel/fiasco/build_arm"
 
 make_fn()
 {
@@ -105,7 +105,7 @@ make_fn()
 	dir=`pwd`;
 	echo $dir;
 
-	if [[ $dir =~ "tudos/src/l4/pkg" ]]; then
+	if [[ $dir =~ "tudos/l4/pkg" ]]; then
 		if [[ $arch == "x86" ]]; then
 			echo "L4RE/x86";
 			BUILDDIR=$L4REX86_BUILDDIR;
@@ -309,7 +309,7 @@ alias dde="cd $L4REDIR/pkg/dde/linux26/"
 alias cdre="cd $L4REDIR/pkg"
 alias cdp="cd $L4REDIR/pkg/plr/server/src"
 alias cdv="cd $L4REDIR/pkg/valgrind"
-alias fiascodev="cd /home/doebel/src/tudos/src/kernel/fiasco.git"
+alias fiascodev="cd /home/doebel/src/tudos/kernel/fiasco"
 alias asteroid="cd /home/doebel/data/work/Projekte/ASTEROID"
 
 alias vless='/usr/share/vim/vim72/macros/less.sh'
