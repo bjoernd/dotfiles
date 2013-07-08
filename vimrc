@@ -4,6 +4,11 @@ set nocompatible
 " after 'set nocomp'
 call pathogen#infect()
 
+set rtp+=~/.vim/bundle/vundle
+call vundle#rc()
+
+Bundle "gmarik/vundle"
+
 " enable syntax highlighting
 syntax enable
 
@@ -44,6 +49,11 @@ set encoding=utf-8
 set t_Co=256
 let g:Powerline_stl_path_style="relative"
 
+
+" Syntastic config
+let g:syntastic_auto_loc_list=1
+let g:syntastic_enable_signs=1
+let g:syntastic_check_on_open=1
 
 " visual bell, do not beep!
 set visualbell
