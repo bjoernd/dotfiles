@@ -8,6 +8,7 @@ set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 
 Bundle "gmarik/vundle"
+Bundle "Valloric/YouCompleteMe"
 
 " enable syntax highlighting
 syntax enable
@@ -20,6 +21,8 @@ set number
 
 " do not expand tabs to spaces
 set noexpandtab
+
+set backspace=2
 
 " make tabs and auto indent be 4 spaces
 set shiftwidth=4
@@ -54,6 +57,17 @@ let g:Powerline_stl_path_style="relative"
 let g:syntastic_auto_loc_list=1
 let g:syntastic_enable_signs=1
 let g:syntastic_check_on_open=1
+let g:syntastic_cpp_config_file="/home/doebel/src/tudos/l4/pkg/syntastic.conf"
+let g:syntastic_c_config_file="/home/doebel/src/tudos/l4/pkg/syntastic.conf"
+let g:syntastic_cpp_check_header = 1
+
+
+" YouCompleteMe config
+let g:ycm_key_list_select_completion = ['<TAB>', '<Down>', '<Enter>']
+let g:ycm_confirm_extra_conf = 0
+
+let g:jedi#popup_select_first = 0
+
 
 " visual bell, do not beep!
 set visualbell
