@@ -12,6 +12,7 @@ import subprocess
 
 if len(sys.argv) != 3:
     print "Usage: lxsysdef <filename> <syscall number or part of its name>"
+    exit(1)
 
 filename = sys.argv[1]
 value    = sys.argv[2]
