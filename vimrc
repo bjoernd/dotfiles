@@ -66,6 +66,7 @@ let g:syntastic_cpp_check_header = 1
 let g:ycm_key_list_select_completion = ['<TAB>', '<Down>', '<Enter>']
 let g:ycm_confirm_extra_conf = 0
 
+let g:jedi#popup_on_dot = 1
 let g:jedi#popup_select_first = 0
 
 
@@ -134,7 +135,10 @@ nnoremap <C-Up> :cp<CR><ESC>
 nnoremap <C-Down> :cn<CR><ESC>
 
 " Ctrl+Alt+M for plain 'make'
-nnoremap <C-M-M> :make<CR><ESC>
+nnoremap <C-M-M> :!make<CR><ESC>
+
+" Ctrl+Alt+U -> ensure BibTex words to be uppercase and wrapped with braces
+nnoremap <C-M-U> vUi{<ESC>lli}<ESC>ww
 
 " LaTeX binding: takes the current line (containing a \begin{foo}[args]
 " statement) and creates the corresponding \end{foo} statement underneath
