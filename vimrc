@@ -5,10 +5,15 @@ set nocompatible
 call pathogen#infect()
 
 set rtp+=~/.vim/bundle/vundle
+set rtp+=~/src/powerline/powerline/bindings/vim
 call vundle#rc()
 
 Bundle "gmarik/vundle"
 Bundle "Valloric/YouCompleteMe"
+
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
 
 " enable syntax highlighting
 syntax enable
@@ -65,9 +70,15 @@ let g:syntastic_cpp_check_header = 1
 " YouCompleteMe config
 let g:ycm_key_list_select_completion = ['<TAB>', '<Down>', '<Enter>']
 let g:ycm_confirm_extra_conf = 0
+let g:ycm_add_preview_to_competeopt = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
 
-let g:jedi#popup_on_dot = 1
-let g:jedi#popup_select_first = 0
+
+" UtilSnips
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 
 " visual bell, do not beep!
@@ -304,6 +315,11 @@ if has("autocmd")
           \ endif
   augroup END
 endif
+
+" ycm: add latex completion trigger
+let g:ycm_semantic_triggers =  {
+  \   'tex' : ['\ref{','\cite{'],
+  \ }
 
 " Generally, this file is the global one I keep in github. Local
 " customizations go into a runtime file:
