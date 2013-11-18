@@ -32,6 +32,7 @@ ZSH_THEME="bjoernd"
 plugins=(git svn taskwarrior)
 
 source $ZSH/oh-my-zsh.sh
+. /home/doebel/src/powerline/powerline/bindings/zsh/powerline.zsh
 
 export CVS_RSH="ssh"
 export CVSEDIT="vim"
@@ -79,13 +80,13 @@ seq ()
     local lower upper output;
     lower=$1 upper=$2;
 
-    if [ $lower -ge $upper ]; then return; fi
+    if [ $lower -gt $upper ]; then return; fi
     while [ $lower -le $upper ];
     do
 	echo -n "$lower "
         lower=$(($lower + 1))
     done
-    echo "$lower"
+    echo
 }
 
 L4REX86_BUILDDIR="/home/doebel/src/tudos/l4/build"
@@ -250,8 +251,8 @@ function ogrep ()
 
 function lxsys ()
 {
-	f32="/usr/include/i386-linux-gnu/asm/unistd_32.h"
-	f64="/usr/include/i386-linux-gnu/asm/unistd_64.h"
+	f32="/usr/include/x86_64-linux-gnu/asm/unistd_32.h"
+	f64="/usr/include/x86_64-linux-gnu/asm/unistd_64.h"
 	for f in $f32 $f64; do
 		lxsysdef $f $1
 	done
@@ -297,7 +298,7 @@ alias pwr_save="sudo $HOME/local/bin/cpu power"
 
 # cd shortcuts
 alias cdbin="cd $L4BIN"
-alias cdf="cd $L4REDIR/pkg/ferret"
+alias cdf="cd /home/doebel/src/fail/src/experiments/l4-sys"
 alias cdi="cd /home/doebel/src/images/l4re/root/l4re"
 alias cdlx="cd /home/doebel/src/tudos/trunk/l4linux-2.6/"
 alias cdlx18="cd /home/doebel/src/linux/linux-2.6.18"
@@ -315,6 +316,7 @@ alias asteroid="cd /home/doebel/data/work/Projekte/ASTEROID"
 alias vless='/usr/share/vim/vim72/macros/less.sh'
 alias vl='vless'
 alias la='ls -la'
+alias tm='TERM=screen-256color tmux'
 
 # Customize to your needs...
 export PATH=/home/doebel/local/bin:/home/doebel/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/opt/sparc-elf-4.6.0/bin/:/opt/mkprom2:/opt/tsim/linux
