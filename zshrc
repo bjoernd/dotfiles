@@ -61,6 +61,12 @@ fix_resolv()
 	fi
 }
 
+
+cpstat ()
+{
+	tar cf - "$1" | pv | (cd "$2"; tar xf -)
+}
+
 # "repeat" command.  Like:
 #
 #	repeat 10 echo foo
@@ -186,7 +192,7 @@ suspm ()
 	xscreensaver-command -lock
 }
 # ssh
-alias loki="ssh bjoern@loki-new.rshc.de"
+alias loki="ssh bjoern@loki.rshc.de"
 alias erwin="ssh -X doebel@erwin.inf.tu-dresden.de"
 alias os="ssh doebel@os.inf.tu-dresden.de"
 
@@ -298,7 +304,7 @@ alias pwr_save="sudo $HOME/local/bin/cpu power"
 
 # cd shortcuts
 alias cdbin="cd $L4BIN"
-alias cdf="cd /home/doebel/src/fail/src/experiments/l4-sys"
+alias cdf="cd /home/doebel/src/fail/fail/src/experiments/l4-sys"
 alias cdi="cd /home/doebel/src/images/l4re/root/l4re"
 alias cdlx="cd /home/doebel/src/tudos/trunk/l4linux-2.6/"
 alias cdlx18="cd /home/doebel/src/linux/linux-2.6.18"
@@ -308,7 +314,7 @@ alias cdn="cd /home/doebel/src/workspace/python/wx/nuggan"
 alias cdo="cd $MYL4DIR/pkg/ore"
 alias dde="cd $L4REDIR/pkg/dde/linux26/"
 alias cdre="cd $L4REDIR/pkg"
-alias cdp="cd $L4REDIR/pkg/plr/server/src"
+alias cdp="cd $L4REDIR/pkg/romain/server/src"
 alias cdv="cd $L4REDIR/pkg/valgrind"
 alias fiascodev="cd /home/doebel/src/tudos/kernel/fiasco"
 alias asteroid="cd /home/doebel/data/work/Projekte/ASTEROID"
@@ -320,3 +326,6 @@ alias tm='TERM=screen-256color tmux'
 
 # Customize to your needs...
 export PATH=/home/doebel/local/bin:/home/doebel/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/opt/sparc-elf-4.6.0/bin/:/opt/mkprom2:/opt/tsim/linux
+export PYTHONPATH=$PYTHONPATH:/home/doebel/local/lib/python2.7/site-packages
+
+DISABLE_AUTO_TITLE=true
