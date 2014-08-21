@@ -318,9 +318,12 @@ endif
 
 " ycm: add latex completion trigger
 let g:ycm_semantic_triggers =  {
-  \   'tex' : ['\ref{','\cite{'],
+  \   'tex' : ['\ref{','\cite{', '\shortcite{'],
   \ }
 
 " Generally, this file is the global one I keep in github. Local
 " customizations go into a runtime file:
 runtime vim.local
+
+hi clear SpellBad
+hi SpellBad guibg=DarkYellow guifg=DarkBlue
