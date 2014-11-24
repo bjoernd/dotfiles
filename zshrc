@@ -264,7 +264,7 @@ function lxsys ()
 	done
 }
 
-alias ag="ack-grep"
+alias ag="ack-grep --ignore-file=is:tags"
 alias eu="erwin_update"
 alias gr="find . | grep -v .svn | grep -v .git | grep -v \~$ | xargs grep -Iisn"
 alias hgr="find . | grep -v .svn | grep -v .git | grep -v \~$ | grep \\.h$ | xargs grep -iIsHn"
