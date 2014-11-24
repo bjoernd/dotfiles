@@ -1,0 +1,194 @@
+((("my-hacking-init" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 1])
+  ("linum-mode" .
+   [0 0 0 0 0 0 0 0 0 1])
+  ("column-number-mode" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("which-function-mode" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("which-func" .
+   [0 0 0 0 0 0 0 0 0 1])
+  ("gtags-mode" .
+   [0 0 0 0 0 0 0 1 0 0])
+  ("elkvm" .
+   [1 0 0 0 0])
+  ("()" .
+   [0 1])
+  ("INFO" .
+   [0 0 0 1])
+  ("show-paren-mode" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 2])
+  ("user-emacs-directory" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("expand-file-name" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0])
+  ("m" .
+   [1])
+  ("cpp-" .
+   [0 0 0 1])
+  ("my-ac-config" .
+   [0 0 0 0 0 0 0 0 0 0 0 1])
+  ("def" .
+   [1 0 0])
+  ("ac-auto-start" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("message" .
+   [0 0 0 0 0 0 1])
+  ("semantic-add-system-include" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("file-name-as-directory" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("load-file" .
+   [0 0 0 0 0 0 0 0 1])
+  ("perror" .
+   [1 0 0 0 0 0])
+  ("ptrace" .
+   [1 0 0 0 0 0])
+  ("my-funcarg-init" .
+   [0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("semantic-mode" .
+   [2 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("global-semantic-idle-scheduler-mode" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0])
+  ("global-semanticdb-minor-mode" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("semantic" .
+   [1 0 0 1 0 0 0 0])
+  ("cc-mode" .
+   [1 0 0 0 0 0 0])
+  ("my-cedet-init" .
+   [0 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("my-after-init-hook" .
+   [0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("after-init-hook" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 1 0 0])
+  ("after-init-time" .
+   [0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("tabs" .
+   [1 0 0 0])
+  ("spaces" .
+   [1 0 0 0 0 0])
+  ("whitespace-style" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("whitespace-line-column" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("newline" .
+   [3 0 0 0 0 0 0])
+  ("load-theme" .
+   [0 0 0 0 0 0 0 0 0 1])
+  ("nil" .
+   [4 0 0])
+  ("c-mode" .
+   [0 0 0 0 0 1])
+  ("my-ac-c-header-init" .
+   [0 0 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("c++-mode" .
+   [0 0 0 2 0 0 0 1])
+  ("add-hook" .
+   [5 0 0 1 0 1 0 1])
+  ("ac-sources" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("add-to-list" .
+   [1 0 0 1 0 1 0 0 0 0 3])
+  ("add-timeout" .
+   [0 0 0 0 0 1 0 0 0 0 0])
+  ("auto-complete-c-headers" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("require" .
+   [5 0 0 0 1 0 1])
+  ("defun" .
+   [6 0 0 0 0])
+  ("auto-complete" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("while" .
+   [0 0 0 1 0])
+  ("include" .
+   [2 0 0 0 1 0 0])
+  ("iostream" .
+   [0 0 0 0 0 1 0 1])
+  ("fstab.h" .
+   [2 0 1 0 0 0 0])
+  ("FLAC/" .
+   [1 0 0 0 0])
+  ("achead:include-directories" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("f" .
+   [1])
+  ("smart-tabs-insinuate" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("p" .
+   [1])
+  ("c-mode-common-hook" .
+   [0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 1])
+  ("lambda" .
+   [1 0 0 0 0 0])
+  ("setq" .
+   [6 0 0 0])
+  ("indent" .
+   [0 0 0 0 0 1])
+  ("indent-tabs-mode" .
+   [0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("c++" .
+   [1 0 0])
+  ("global-whitespace-mode" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2])
+  ("for" .
+   [0 0 1])
+  ("pr" .
+   [1 0])
+  ("global-set-key" .
+   [0 0 0 0 1 0 1 0 0 1 0 0 0 0])
+  ("i" .
+   [1])
+  ("load" .
+   [2 0 0 0])
+  ("cpu" .
+   [3 0 1])
+  ("t" .
+   [1])
+  ("global-semantic-highlight-func-mode" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("semantic/bovine/gcc" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("my-cedet-hook" .
+   [0 0 0 0 0 2 0 0 0 0 0 0 0])
+  ("c++-mode-common-hook" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0])
+  ("lisp" .
+   [1 0 0 0])
+  ("process" .
+   [1 0 0 0 0 0 0])
+  ("load-path" .
+   [0 0 0 0 1 0 0 0 2])
+  ("ac-menu-height" .
+   [0 0 0 0 0 0 1 0 0 0 0 0 0 0])
+  ("ac-delay" .
+   [0 0 0 0 0 0 1 0])
+  ("ac-use-fuzzy" .
+   [0 0 0 0 0 0 0 0 0 0 0 1])
+  ("ac-quick-help-timer" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("ac-quick-help-delay" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0])
+  ("auto-complete-clang" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("provide" .
+   [0 0 0 0 0 0 1])
+  ("clang-include-dir-str" .
+   [0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("message-box" .
+   [0 0 0 0 0 0 0 1 0 0 0])
+  ("c++-mode-hook" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("my-ac-cc-mode-setup" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0])
+  ("global-auto-revert-mode" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("global-auto-complete-mode" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0])
+  ("tab-width" .
+   [0 0 0 0 0 0 0 0 1])
+  ("append" .
+   [0 1 0 1 0 1])
+  ("ac-clang-cflags" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])))

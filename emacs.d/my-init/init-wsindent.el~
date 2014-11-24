@@ -1,0 +1,10 @@
+; C/C++ tabs, spaces and indents
+(setq-default indent-tabs-mode nil)
+(smart-tabs-insinuate 'c 'c++)
+(add-hook 'c-mode-hook (lambda () (setq indent-tabs-mode t)))
+(add-hook 'c++-mode-hook (lambda () (setq indent-tabs-mode t)))
+
+; whitespace highlighting
+(require 'whitespace)
+
+(provide 'init-wsindent)
