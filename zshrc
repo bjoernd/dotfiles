@@ -327,5 +327,6 @@ alias tm='TERM=screen-256color tmux'
 # Customize to your needs...
 export PATH=/home/doebel/local/bin:/home/doebel/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/opt/sparc-elf-4.6.0/bin/:/opt/mkprom2:/opt/tsim/linux
 export PYTHONPATH=$PYTHONPATH:/home/doebel/local/lib/python2.7/site-packages
+export LD_LIBRARY_PATH=/home/doebel/local/lib:$LD_LIBRARY_PATH
 
 DISABLE_AUTO_TITLE=true
