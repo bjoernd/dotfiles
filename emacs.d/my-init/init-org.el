@@ -18,6 +18,8 @@
       '(("PENDING" . (:foreground "yellow" :weight "bold"))
         ("TRIAGED" . (:foreground "yellow" :weight "bold"))
         ("ANALYZED" . (:foreground "yellow" :weight "bold")))
-      )
+)
 
+(setq org-log-done 'time)
+             
 (provide 'init-org)
