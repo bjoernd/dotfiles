@@ -9,7 +9,7 @@ set rtp+=~/src/powerline/powerline/bindings/vim
 call vundle#rc()
 
 Bundle "gmarik/vundle"
-Bundle "Valloric/YouCompleteMe"
+"Bundle "Valloric/YouCompleteMe"
 
 python from powerline.vim import setup as powerline_setup
 python powerline_setup()
@@ -59,12 +59,12 @@ let g:Powerline_stl_path_style="relative"
 
 
 " Syntastic config
-let g:syntastic_auto_loc_list=1
-let g:syntastic_enable_signs=1
-let g:syntastic_check_on_open=1
-let g:syntastic_cpp_config_file="/home/doebel/src/tudos/l4/pkg/syntastic.conf"
-let g:syntastic_c_config_file="/home/doebel/src/tudos/l4/pkg/syntastic.conf"
-let g:syntastic_cpp_check_header = 1
+"let g:syntastic_auto_loc_list=1
+"let g:syntastic_enable_signs=1
+"let g:syntastic_check_on_open=1
+"let g:syntastic_cpp_config_file="/home/doebel/src/tudos/l4/pkg/syntastic.conf"
+"let g:syntastic_c_config_file="/home/doebel/src/tudos/l4/pkg/syntastic.conf"
+"let g:syntastic_cpp_check_header = 1
 
 
 " YouCompleteMe config
@@ -73,6 +73,9 @@ let g:ycm_confirm_extra_conf = 0
 let g:ycm_add_preview_to_competeopt = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_complete_in_comments=1
+let g:ycm_complete_in_strings=1
+let g:ycm_server_use_vim_stdout=0
 
 
 " UtilSnips
