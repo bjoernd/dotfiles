@@ -1,12 +1,14 @@
  ; auto-complete tools
 (require 'auto-complete)
 (require 'auto-complete-config)
+(require 'auto-complete-nxml)
 (setq ac-menu-height 20)
 (setq ac-auto-start 3)
 (setq ac-delay 1)
 (setq ac-quick-help-delay 0.5)
 (setq ac-use-fuzzy t)
 (define-key ac-mode-map  (kbd "C-n") 'auto-complete)
+(setq ac-trigger-key (kbd "C-n"))
 
 (defun my-ac-config ()
   (setq-default ac-sources
@@ -20,7 +22,7 @@
   (add-to-list 'load-path "~/.emacs.d/ac-clang-async")
   (require 'auto-complete-clang-async)
   (setq ac-clang-complete-executable "~/.emacs.d/ac-clang-async/clang-complete")
-  (setq ac-sources '(ac-source-clang-async))
+  (setq ac-sources '(ac-source-abbrev ac-source-dictionary ac-source-words-in-same-mode-buffers ac-source-clang-async))
 
   (global-set-key (kbd "C-S-m") 'compile)
   
