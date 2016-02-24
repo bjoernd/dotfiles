@@ -5,7 +5,7 @@ set nocompatible
 call pathogen#infect()
 
 set rtp+=~/.vim/bundle/vundle
-set rtp+=~/src/powerline/powerline/bindings/vim
+set rtp+=~/.local/lib/python2.7/site-packages/powerline/bindings/vim
 call vundle#rc()
 
 Bundle "gmarik/vundle"
