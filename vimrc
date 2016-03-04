@@ -11,10 +11,6 @@ call vundle#rc()
 Bundle "gmarik/vundle"
 "Bundle "Valloric/YouCompleteMe"
 
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
-
 " enable syntax highlighting
 syntax enable
 

@@ -144,6 +144,6 @@ alias acs="apt-cache search"
 alias vless='/usr/share/vim/vim72/macros/less.sh'
 alias vl='vless'
 alias la='ls -la'
-alias tm='TERM=screen-256color tmux'
+alias tmux='TERM=screen-256color /usr/bin/tmux'
 
 DISABLE_AUTO_TITLE=true
